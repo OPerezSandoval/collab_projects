@@ -18,9 +18,25 @@ if len(word) < 5:
 else:
     user_attempts = 10
 
-print(user_attempts)
+word_characters = []
+
+for i in word:
+    print("_", end="")
+    word_characters.append(i)
+
+while user_attempts > attempts:
+    user_guess = input(f"\nGuess the word: ")
+    if user_guess in word_characters:
+         print("yes")
+    else:
+        attempts = attempts + 1
+        print(attempts)
 
 
 
 
-print(word)
+
+
+
+
+

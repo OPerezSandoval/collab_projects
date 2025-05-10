@@ -7,15 +7,16 @@ random_word = random.choice(word_library)
 word_length = 0
 number_of_guesses = 0
 failed_guesses = 0
-char_list = []
-good_guesses = []
-bad_guesses = []
+char_list = [] #keeps track of individual characters in the word
+good_guesses = [] #keeps track of all worthy characters
+bad_guesses = [] #keeps track of all unworthy characters
 
 #user_input = input("Enter a single letter to guess:") # stops code t accept user terminal input
 
 for i in random_word: #determines word length
     word_length += 1
     char_list.append(i)
+    good_guesses.append("_")
 
 if word_length <= 4:
     number_of_guesses = 4
@@ -44,9 +45,11 @@ while number_of_guesses > failed_guesses:
     user_input = input("Enter a single letter to guess:") # stops code and accept user terminal input
 
     if user_input in char_list and user_input not in good_guesses: # checks user input versus the characters in the word and in guesses
-        good_guesses.append(user_input)
+        index_value = char_list.index(user_input)
+        good_guesses[index_value] = user_input
+        #good_guesses.append(user_input)
         print("You correctly guessed:", user_input)
-        print(char_list.index(user_input))
+       # print(char_list.index(user_input))
     elif user_input in char_list and user_input in good_guesses:
         print("You have already guessed this letter.")
     elif user_input not in char_list and user_input not in bad_guesses:
@@ -62,6 +65,7 @@ while number_of_guesses > failed_guesses:
 
     print(failed_guesses)
     print(number_of_guesses)
+    print (good_guesses)
 
 
 

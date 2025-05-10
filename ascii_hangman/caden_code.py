@@ -37,7 +37,63 @@ print("-------------------------------")
 print("\n")
 
 
+def hangman_status(attempts):
+    if attempts == 0.0:
+        print(" _____")
+        print("|     |")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("______")
+    elif attempts <= 0.15:
+        print(" _____")
+        print("|     |")
+        print("|     O")
+        print("|")
+        print("|")
+        print("|")
+        print("______")
+    elif attempts <= 0.30:
+        print(" _____")
+        print("|     |")
+        print("|     O")
+        print("|     |")
+        print("|")
+        print("|")
+        print(" ______")
+    elif attempts <= 0.60:
+        print(" _____")
+        print("|     |")
+        print("|     O")
+        print("|    \|/")
+        print("|     |")
+        print("|")
+        print("______")
+    elif attempts <= 0.75:
+        print(" _____")
+        print("|     |")
+        print("|     O")
+        print("|    \|/")
+        print("|     |")
+        print("|    / ")
+        print("______")
+    elif attempts > 0.80:
+        print(" _____")
+        print("|     |")
+        print("|     O")
+        print("|    \|/")
+        print("|     | ")
+        print("|    / \ ")
+        print("______")
+    return
+
+
 while number_of_guesses > failed_guesses:
+
+    percentage_guess = failed_guesses / number_of_guesses
+    hangman_status(percentage_guess)
+
 
     for good in good_guesses:
         print(good, end=" ")
@@ -71,8 +127,6 @@ while number_of_guesses > failed_guesses:
         print("Thanks for playing!")
         break
 
-    print(failed_guesses)
-    print(number_of_guesses)
 
 
 

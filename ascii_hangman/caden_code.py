@@ -46,10 +46,9 @@ while number_of_guesses > failed_guesses:
     user_input = input("Enter a single letter to guess:") # stops code and accept user terminal input
 
     if user_input in char_list and user_input not in good_guesses: # checks user input versus the characters in the word and in guesses
-        for char in char_list:
+        for index_value, char in enumerate(char_list):
             print(char)
             if char == user_input:
-                index_value = char_list.index(char)
                 good_guesses[index_value] = user_input
                 print(index_value)
         print("You correctly guessed:", user_input)

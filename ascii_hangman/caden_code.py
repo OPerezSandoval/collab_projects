@@ -114,13 +114,15 @@ while number_of_guesses > failed_guesses:
     elif user_input not in char_list and user_input not in bad_guesses:
         bad_guesses.append(user_input)
         failed_guesses += 1
-        print("Bad guess, try again.")
+        if failed_guesses != number_of_guesses:
+            print("Bad guess, try again.")
 
     elif user_input not in char_list and user_input in bad_guesses:
         print("This was already a failed guess.")
 
     if failed_guesses == number_of_guesses:
         print("YOU ARE A FAILURE!")
+        print("THE MAN HANGED!")
         break
     elif good_guesses == char_list:
         print("NO HANGING TODAY!")

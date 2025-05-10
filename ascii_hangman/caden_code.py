@@ -31,6 +31,18 @@ print("-- Welcome To Brutal Hangman --")
 print("-------------------------------")
 print("--        GOOD LUCK!         --")
 print("-------------------------------")
+print("\n")
+
+for i in char_list:
+    print("_", end="")
+print("\n")
+
+while number_of_guesses > failed_guesses:
+    user_input = input("Enter a single letter to guess:") # stops code t accept user terminal input
+    if user_input in char_list:
+        print("You Guessed The Letter:", user_input)
+    else:
+        failed_guesses += 1
 
 
 

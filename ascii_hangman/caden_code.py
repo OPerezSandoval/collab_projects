@@ -47,10 +47,9 @@ while number_of_guesses > failed_guesses:
 
     if user_input in char_list and user_input not in good_guesses: # checks user input versus the characters in the word and in guesses
         for index_value, char in enumerate(char_list):
-            print(char)
             if char == user_input:
                 good_guesses[index_value] = user_input
-                print(index_value)
+
         print("You correctly guessed:", user_input)
 
     elif user_input in char_list and user_input in good_guesses:

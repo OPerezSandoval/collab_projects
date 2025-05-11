@@ -6,31 +6,62 @@
 
 import random
 
-# List of words & a random selection
-word_bank = ["pizza", "documents", "computer", "jellyfish", "hi", "secret"]
-word = random.choice(word_bank)
+# Random word selected from list & create a list of the word
+word = str(random.choice(["pie", "documents", "computer", "mouse", "hi"]))
+correct_word = list(word)
 
-# Attempts to user based on word length
-attempts = 0
+# Keep track of all guessed letters & correct guessed letters
+letters_guessed = str([])
+correct_guessed_letters = []
 
+# Define the number of attempts based on the word length
+# ****Need to condense this, maybe one line****
 if len(word) < 5:
-    user_attempts = 4
+    user_attempts = 3
 else:
-    user_attempts = 10
+    user_attempts = 8
 
-word_characters = []
+# Main code that will run if user has attempts left
+while user_attempts > 0:
 
-for i in word:
-    print("_", end="")
-    word_characters.append(i)
+    # If the user input letter is in the word, print the letter if not print
+    # an underscore.
+    for i in word:
+        if i in letters_guessed:
+            print(i, end="")
+        else:
+            print("_", end="")
 
-while user_attempts > attempts:
-    user_guess = input(f"\nGuess the word: ")
-    if user_guess in word_characters:
-         print("yes")
+    # Ask user for letter input and index only for first letter
+    user_guess = str(input(f"\nGuess a letter: "))
+    first_letter_user_guess = user_guess[0]
+
+    # Let user know the letter has been guessed
+    if first_letter_user_guess in letters_guessed:
+        print(f'Whoa there bucko you already guessed: '
+              f'"{first_letter_user_guess}". '
+              f'Use another letter!')
+
+    # Add the users input to the letters_guessed list
+    letters_guessed += first_letter_user_guess
+
+    # Keep track of correct letters & exclude duplication in the
+    # correct_guessed_letters list. Decrease attempts for incorrect letters.
+    if first_letter_user_guess in word:
+        if first_letter_user_guess not in correct_guessed_letters:
+            correct_guessed_letters += first_letter_user_guess
+            print(f"You have {user_attempts} attempts remaining.")
     else:
-        attempts = attempts + 1
-        print(attempts)
+        user_attempts -= 1
+        print(f"You have {user_attempts} attempts remaining.")
+
+    # Compare lengths for the correct word and correct guessed letters
+    if len(correct_guessed_letters) == len(correct_word):
+        exit(print("You win!"))
+
+exit(print("YOU LOST!!!!"))
+
+
 
 
 

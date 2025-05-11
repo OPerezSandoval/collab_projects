@@ -60,14 +60,3 @@ while user_attempts > 0:
         exit(print("You win!"))
 
 exit(print("YOU LOST!!!!"))
-
-
-
-
-
-
-
-
-
-
-

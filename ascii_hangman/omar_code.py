@@ -1,9 +1,15 @@
 import random
+from os import write
+
+# Open the text file and read the output
+hangman_text_file = open("hangman_text.txt", "r")
+hangman_text = hangman_text_file.read()
 
 
 # Integrate a menu option for the user
 def menu():
-    print("__Welcome to Hangman!!__")
+    print(hangman_text)
+    print("\n__Welcome to Hangman!!__")
     print("________________________\n")
     print("1 - PLAY GAME ")
     print("2 - ADD WORD ")
